@@ -1,0 +1,4 @@
+#page-nav ul * {
+  list-style: none;
+  text-align: right;
+}
