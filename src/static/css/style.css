@@ -1,11 +1,11 @@
 #page-nav ul {
   display: grid;
-  border-right: thick black solid;
+  border-right: medium black solid;
 }
 
 #page-nav li {
   padding-left: 2rem;
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
 
   /* aspect-ratio: 1/1; */
 }
@@ -33,11 +33,26 @@ h4,
 h5,
 h6,
 p {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  /* padding-left: 2rem; */
+  /* padding-right: 2rem; */
 }
 
 #page-progress {
+  /* padding-right: 2rem; */
+  display: grid;
+}
+
+#page-progress li {
   padding-left: 2rem;
-  padding-right: 2rem;
+  border-left: medium black solid;
+  display: grid;
+  place-content: center;
+  justify-content: left;
+  min-height: 4rem;
+  line-height: 1.2;
+  /* padding: 1rem; */
+  /* aspect-ratio: 1/1; */
+  color: black;
+  font-size: var(--font-size-0);
+  font-weight: 400;
 }
