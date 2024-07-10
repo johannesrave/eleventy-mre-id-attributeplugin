@@ -25,22 +25,15 @@ title: the virtual home of johannes rave
   <body>
     <nav id="page-nav">
       <ul>
-        <li><a href="/">blog</a></li>
+        <li id="home-anchor-entry"><a href="/">jrave<br>codes</a></li>
         <li><a href="/work">work</a></li>
         <li><a href="/about">about</a></li>
         <li><a href="/feed">feed</a></li>
       </ul>
     </nav>
-    <main @raw="content"></main>
+    <main @raw="addIds(content)"></main>
     <nav id="page-progress">
-      <ul>
-      <script webc:type="js">
-        getToc(content);
-      </script>
-        <!-- <li webc:for="(id, heading) in headings"> -->
-          <!-- <a :href="'#' + id" @text="heading"></a> -->
-        <!-- </li> -->
-      </ul>
+      <ul @raw="getToc(addIds(content))"></ul>
     </nav>
   </body>
 </html>
