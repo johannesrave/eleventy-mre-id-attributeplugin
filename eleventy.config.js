@@ -8,6 +8,12 @@ export default async function (eleventyConfig) {
 
 	eleventyConfig.addJavaScriptFunction("getToc", getToc);
 	eleventyConfig.addJavaScriptFunction("addIds", addIds);
+	eleventyConfig.addJavaScriptFunction("extractExcerpt", extractExcerpt);
+
+	eleventyConfig.addJavaScriptFunction(
+		"dateToLocaleString",
+		dateToLocaleString,
+	);
 
 	eleventyConfig.addPlugin(eleventyWebcPlugin, {
 		components: "src/_includes/_components/*.webc",
@@ -27,7 +33,6 @@ function getToc(content) {
 			const id = h.id;
 			const title = h.textContent;
 			return `<li><a href="#${id}">${title}</a></li>`;
-			//
 		})
 		.join("");
 }
@@ -35,11 +40,10 @@ function getToc(content) {
 function addIds(content, elementTypes = ["h1", "h2"]) {
 	const dom = new JSDOM(content).window.document.body;
 	const headings = Array.from(dom.querySelectorAll("h1, h2"));
-	headings.forEach((h) => {
-		console.log(h.textContent);
-		h.id = toKebabCase(h.textContent);
-	});
-	console.log(dom.innerHTML);
+
+	for (const heading of headings) {
+		heading.id = toKebabCase(heading.textContent);
+	}
 
 	return dom.innerHTML;
 }
@@ -48,4 +52,17 @@ function toKebabCase(s) {
 	return encodeURIComponent(
 		String(s).trim().toLowerCase().replace(/\s+/g, "-"),
 	);
+}
+
+function dateToLocaleString(dateObj) {
+	return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
+}
+
+function extractExcerpt(post) {
+	if (!post.templateContent) return "";
+	if (post.templateContent.indexOf("</p>") > 0) {
+		const end = post.templateContent.indexOf("</p>");
+		return post.templateContent.substring(0, end + 4);
+	}
+	return post.templateContent;
 }

@@ -1,0 +1,12 @@
+---
+layout: "_document.webc"
+title: all tags
+---
+
+<h1 @text="title"></h1>
+
+<ul>
+  <li webc:for="tag in collections">
+    <a :href="tag + '/'" @text="tag"></a>
+  </li>
+</ul>

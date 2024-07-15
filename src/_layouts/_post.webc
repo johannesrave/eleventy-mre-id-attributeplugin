@@ -4,6 +4,6 @@ layout: _base.webc
 ---
 
 <main @raw="addIds(content)"></main>
-<!-- <nav id="page-progress"> -->
-  <!-- <ul @raw="getToc(addIds(content))"></ul> -->
-<!-- </nav> -->
+<nav id="page-progress">
+  <ul @raw="getToc(addIds(content))"></ul>
+</nav>
