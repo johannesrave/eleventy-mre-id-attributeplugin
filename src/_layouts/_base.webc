@@ -23,18 +23,24 @@ title: the virtual home of johannes rave
   </head>
 
   <script webc:setup>
+    console.log("HELLO FROM LAYOUT SETUP");
   </script>
 
   <body>
-    <nav id="page-nav">
-      <ul>
-        <li id="home-anchor-entry"><a href="/">jrave<br>codes</a></li>
-        <li><a href="http://johannesrave.github.io">work</a></li>
-        <li><a href="/about">about</a></li>
-        <li><a href="/feed">feed</a></li>
-      </ul>
-    </nav>
-    <div webc:nokeep @raw=content></div>
+    <site-nav></site-nav>
+    <main @raw="addIds(content)"></main>
+    <aside>
+      <tag-list
+        webc:if="secondaryMenu.includes('tag-list')"
+        :collections="collections"
+      >
+      </tag-list>
+      <table-of-contents
+        webc:if="secondaryMenu.includes('toc')"
+        :content="content"
+      >
+      </table-of-contents>
+    </aside>
   </body>
 </html>
 
@@ -45,26 +51,46 @@ title: the virtual home of johannes rave
     height: 100vh;
 
     display: grid;
-    grid-template: ". page-nav main page-progress ." 1fr / auto 12rem 48rem 12rem auto;
-    /*gap: 2rem;*/
+    grid-template: ". site-nav main secondary-menu ." 1fr / auto 12rem 64ch 12rem auto;
   }
 
   main {
     overflow-y: scroll;
     grid-area: main;
-    padding-top: 8rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    padding: var(--space-xl);
   }
 
-  #page-nav {
-    grid-area: page-nav;
-    margin-top: 8rem;
+  body > site-nav {
+    grid-area: site-nav;
   }
-  #page-progress {
-    grid-area: page-progress;
-    margin-top: 8rem;
+
+  body > aside {
+    grid-area: secondary-menu;
+  }
+
+  body > * {
+    padding-top: var(--space-3xl);
+  }
+
+  @media (max-width: 128ch) {
+    body {
+      grid-template:
+        "main" 1fr / 1fr;
+    }
+
+    body > * {
+      padding-top: 0;
+    }
+
+    body > site-nav {
+      grid-area: main;
+      place-self: end;
+      z-index: 10;
+
+    }
+
+    body > aside {
+      display: none;
+    }
   }
 </style>

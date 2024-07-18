@@ -1,9 +1,6 @@
 ---
-title: the virtual home of johannes rave
 layout: _base.webc
+secondaryMenu: ['tag-list']
 ---
 
-<main @raw="addIds(content)"></main>
-<!-- <nav id="page-progress"> -->
-  <!-- <ul @raw="getToc(addIds(content))"></ul> -->
-<!-- </nav> -->
+<main @raw="content" webc:nokeep></main>

@@ -1,0 +1,20 @@
+<nav class="tag-list">
+  <ul>
+    <li webc:for="tag in collections">
+      <a :href="tag + '/'" @text="'#' + tag"></a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .tag-list ul {
+    display: flex;
+    flex-direction: row;
+
+    gap: var(--space-xs);
+  
+    padding-left: var(--space-m);
+    border-left: medium black solid;
+  }
+
+</style>

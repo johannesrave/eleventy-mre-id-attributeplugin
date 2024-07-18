@@ -1,0 +1,21 @@
+<nav class="table-of-contents">
+  <h2>contents</h2>
+  <ol @raw="getToc(addIds(content))"></ul>
+</nav>
+
+<style>
+  .table-of-contents {
+    
+    padding: var(--space-s);
+    border-left: medium black solid;
+  }
+
+  .table-of-contents ol {
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--space-xs);
+  
+  }
+
+</style>

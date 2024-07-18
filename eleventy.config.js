@@ -3,7 +3,6 @@ import eleventyWebcPlugin from "@11ty/eleventy-plugin-webc";
 import { JSDOM } from "jsdom";
 
 export default async function (eleventyConfig) {
-	// eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 	eleventyConfig.addPassthroughCopy("src/static/**/*.css");
 
 	eleventyConfig.addJavaScriptFunction("getToc", getToc);
@@ -16,10 +15,15 @@ export default async function (eleventyConfig) {
 	);
 
 	eleventyConfig.addPlugin(eleventyWebcPlugin, {
-		components: "src/_includes/_components/*.webc",
+		components: "src/_components/**/*.webc",
 	});
 	return {
-		dir: { input: "src", output: "build", layouts: "_layouts" },
+		dir: {
+			input: "src",
+			output: "build",
+			layouts: "_layouts",
+			includes: "_components",
+		},
 		templateFormats: ["md", "webc"],
 	};
 }

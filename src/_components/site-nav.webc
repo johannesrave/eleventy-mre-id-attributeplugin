@@ -1,0 +1,57 @@
+<nav id="site-nav">
+  <ul>
+    <li id="home-link">
+      <a href="/">jrave<br />codes</a>
+    </li>
+    <li><a href="http://johannesrave.github.io">work</a></li>
+    <li><a href="/about">about</a></li>
+    <li><a href="/feed">feed</a></li>
+  </ul>
+</nav>
+
+<style>
+  #site-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    text-align: center;
+
+    gap: var(--space-s);
+
+    padding: var(--space-s);
+    border-right: medium black solid;
+  }
+
+  #site-nav a {
+    box-sizing: content-box;
+    display: grid;
+    place-content: center;
+    padding: var(--space-xs);
+
+    width: var(--space-xl);
+    aspect-ratio: 1/1;
+
+    background-color: white;
+    border: 3px inset black;
+    border-radius: 50%;
+
+    line-height: 1;
+    font-size: var(--font-size-1);
+    font-weight: 600;
+  }
+
+  #site-nav a:hover {
+    border: 3px solid black;
+    /*margin: -2px;*/
+  }
+
+  #site-nav a[href="/"] {
+    background-color: black;
+    color: white;
+  }
+
+  #site-nav a[href="/"]:hover {
+    background-color: white;
+    color: black;
+  }
+</style>

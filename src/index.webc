@@ -6,7 +6,6 @@ pagination:
   size: 8
   alias: posts
   reverse: true
-aside: "<p>test</p>"
 ---
 
 <h1>recent posts</h1>
