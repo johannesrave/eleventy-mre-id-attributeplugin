@@ -1,6 +1,6 @@
 ---
-title: the virtual home of johannes rave
-layout: "_document.webc"
+layout: _base.webc
+secondaryMenu: ["tag-list"]
 pagination:
   data: collections.post
   size: 8
@@ -8,22 +8,8 @@ pagination:
   reverse: true
 ---
 
-<h1>recent posts</h1>
-<ul class="post-list">
-  <li class="post-list-item" webc:for="post of pagination.items">
-    <time
-      :datetime="post.data.date.toISOString()"
-      @text="dateToLocaleString(post.data.date)"
-    ></time>
-    <a :href="(post.data.page.url)">
-      <h2 @text="post.data.title"></h2>
-    </a>
-    <div>
-      <a
-        webc:for="tag of post.data.tags"
-        :href="'tags/' + (tag)"
-        @text="'#' + (tag)"
-      ></a>
-    </div>
-  </li>
-</ul>
+<h1>jrave.codes</h1>
+a blog - mostly about technology.
+
+<h2>recent posts</h2>
+<post-excerpt-list :posts="pagination.items"></post-excerpt-list>

@@ -1,10 +1,9 @@
 ---
-title: rationale
+title: "why blog?"
 tags: [ personal ]
 date: 2023-08-27T23:45:00+2
 ---
 
-# why blog?
 i have, for the better part of two decades, held back from publishing to the web.
 
 writing stuff down in general has always presented a challenge to me - the reasons are varied, mundane and boring.

@@ -1,5 +1,5 @@
 ---
-layout: "_document.webc"
+layout: "_base.webc"
 title: all tags
 ---
 
@@ -7,6 +7,6 @@ title: all tags
 
 <ul>
   <li webc:for="tag in collections">
-    <a :href="tag + '/'" @text="tag"></a>
+    <a :href="'/tags/' + tag + '/'"  @text="tag"></a>
   </li>
 </ul>

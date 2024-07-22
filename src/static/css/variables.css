@@ -61,14 +61,13 @@ h1 {
   font-size: var(--font-size-4);
 }
 
-h1,
 h2,
 h3,
 h4 {
   font-weight: 600;
   line-height: 1.2;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 h1:first-child,
@@ -155,8 +154,4 @@ h2:first-child {
   --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
   --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
   --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
-}
-
-:root {
-  --stroke-thin: var(--space-3xs);
 }

@@ -1,6 +1,41 @@
 ---
-layout: _base.webc
-secondaryMenu: ['toc']
+layout: "_base.webc"
+permalink: "posts/{{ page.date | date: '%Y%m%d' }}/{{ title | slugify }}"
 ---
 
-<main @raw="content" webc:nokeep></main>
+<script webc:type="js">
+  console.log(JSON.stringify(webc.attributes));
+  console.log(JSON.stringify(page));
+  ("");
+</script>
+
+<header class="post-header">
+  <h1 @raw="title"></h1>
+  <!-- <span>tagged as:</span> -->
+  <time :datetime="date.toISOString()" @text="dateToLocaleString(date)"></time>
+  -
+  <ul>
+    <li webc:for="tag of tags">
+      <a :href="`/tags/${tag}/`" @text="'#' + tag"></a>
+    </li>
+  </ul>
+</header>
+
+<article @raw="content"></article>
+
+<footer></footer>
+
+<style>
+  .post-header {
+    margin-bottom: var(--space-s);
+  }
+
+  .post-header h1 {
+    line-height: 1;
+  }
+
+  .post-header ul {
+    display: inline-flex;
+    gap: var(--space-2xs);
+  }
+</style>

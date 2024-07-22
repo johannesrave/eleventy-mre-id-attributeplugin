@@ -1,5 +1,6 @@
 ---
 title: the virtual home of johannes rave
+secondaryMenu: []
 ---
 
 <html lang="en">
@@ -62,6 +63,7 @@ title: the virtual home of johannes rave
 
   body > site-nav {
     grid-area: site-nav;
+    width:100%;
   }
 
   body > aside {
@@ -86,7 +88,6 @@ title: the virtual home of johannes rave
       grid-area: main;
       place-self: end;
       z-index: 10;
-
     }
 
     body > aside {

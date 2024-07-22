@@ -1,11 +1,11 @@
 ---
-layout: "_document.webc"
 title: about jrave.codes
-headings: []
+layout: _base.webc
+secondaryMenu: ['tag-list']
 ---
 
 # about
 
 welcome to the virtual home of johannes rave.
 
-nowadays i am a software engineer and architect.
+i am a software engineer.

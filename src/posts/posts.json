@@ -1,4 +1,5 @@
 {
-	"layout":"_post.webc",
-	"tags": ["post"] 
+  "layout": "_post.webc",
+  "secondaryMenu": ["toc"],
+  "tags": ["post"]
 }

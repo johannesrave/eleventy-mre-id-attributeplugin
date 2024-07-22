@@ -1,7 +1,7 @@
 <nav class="tag-list">
   <ul>
     <li webc:for="tag in collections">
-      <a :href="tag + '/'" @text="'#' + tag"></a>
+      <a :href="'/tags/' + tag + '/'" @text="'#' + tag"></a>
     </li>
   </ul>
 </nav>
@@ -10,11 +10,16 @@
   .tag-list ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
-    gap: var(--space-xs);
+    column-gap: var(--space-xs);
   
-    padding-left: var(--space-m);
+    padding: var(--space-m);
     border-left: medium black solid;
+  }
+
+  .tag-list li {
+    
   }
 
 </style>

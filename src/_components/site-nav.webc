@@ -18,8 +18,20 @@
 
     gap: var(--space-s);
 
-    padding: var(--space-s);
+    padding: var(--space-m);
     border-right: medium black solid;
+  }
+
+  #site-nav {
+      container-type: size;
+      min-height: var(--space-3xl);
+      min-width:100%;
+  }
+
+  @container (min-width: 20rem){
+    #site-nav ul{
+      flex-direction: row-reverse;
+    }
   }
 
   #site-nav a {
