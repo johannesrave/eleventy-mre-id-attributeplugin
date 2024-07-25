@@ -3,13 +3,17 @@
     <li id="home-link">
       <a href="/">jrave<br />codes</a>
     </li>
-    <li><a href="http://johannesrave.github.io">work</a></li>
+    <!-- <li><a href="http://johannesrave.github.io">work</a></li> -->
     <li><a href="/about">about</a></li>
     <li><a href="/feed">feed</a></li>
   </ul>
 </nav>
 
 <style>
+  #site-nav {
+    width: min-content;
+  }
+
   #site-nav ul {
     display: flex;
     flex-direction: column;
@@ -17,15 +21,7 @@
     text-align: center;
 
     gap: var(--space-s);
-
-    padding: var(--space-m);
-    border-right: medium black solid;
-  }
-
-  #site-nav {
-      container-type: size;
-      min-height: var(--space-3xl);
-      min-width:100%;
+    width: min-content;
   }
 
   @container (min-width: 20rem){

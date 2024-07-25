@@ -16,3 +16,8 @@ p {
 time {
   font-style: italic;
 }
+
+h1 {
+  line-height: 1;
+  margin-bottom: var(--space-3xs);
+}

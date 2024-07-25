@@ -4,8 +4,7 @@ permalink: "posts/{{ page.date | date: '%Y%m%d' }}/{{ title | slugify }}"
 ---
 
 <script webc:type="js">
-  console.log(JSON.stringify(webc.attributes));
-  console.log(JSON.stringify(page));
+  console.log(JSON.stringify(content));
   ("");
 </script>
 
@@ -21,7 +20,7 @@ permalink: "posts/{{ page.date | date: '%Y%m%d' }}/{{ title | slugify }}"
   </ul>
 </header>
 
-<article @raw="content"></article>
+<article @html="content"></article>
 
 <footer></footer>
 
@@ -30,12 +29,9 @@ permalink: "posts/{{ page.date | date: '%Y%m%d' }}/{{ title | slugify }}"
     margin-bottom: var(--space-s);
   }
 
-  .post-header h1 {
-    line-height: 1;
-  }
 
   .post-header ul {
     display: inline-flex;
-    gap: var(--space-2xs);
+    gap: var(--space-xs);
   }
 </style>

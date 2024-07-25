@@ -1,6 +1,7 @@
 <nav class="table-of-contents">
   <h2>contents</h2>
-  <ol @raw="getToc(addIds(content))"></ol>
+  <ol @raw="getToc(content)"></ol>
+  <!-- <ol @raw="getToc(addIds(content))"></ol> -->
 </nav>
 
 <style>

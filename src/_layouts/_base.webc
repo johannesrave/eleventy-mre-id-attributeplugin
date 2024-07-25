@@ -23,14 +23,28 @@ secondaryMenu: []
     <style @raw="getBundle('css')" webc:keep></style>
   </head>
 
-  <script webc:setup>
-    console.log("HELLO FROM LAYOUT SETUP");
+  <script webc:type="js">
+    console.log(JSON.stringify(content));
+    ("");
   </script>
-
   <body>
-    <site-nav></site-nav>
-    <main @raw="addIds(content)"></main>
-    <aside>
+    <div id="primary-nav-area">
+      <div id="primary-nav-container">
+        <site-nav webc:nokeep></site-nav>
+        <!-- <ul> -->
+          <!-- <li id="home-link"> -->
+            <!-- <a href="/">jrave<br />codes</a> -->
+          <!-- </li> -->
+          <!-- <li><a href="http://johannesrave.github.io">work</a></li> -->
+          <!-- <li><a href="/about">about</a></li> -->
+          <!-- <li><a href="/feed">feed</a></li> -->
+        <!-- </ul> -->
+      </div>
+    </div>
+    <!-- <primary-nav></primary-nav> -->
+    <main @raw="content"></main>
+    <!-- <main @raw="addIds(content)"></main> -->
+    <aside id="secondary-nav-container">
       <tag-list
         webc:if="secondaryMenu.includes('tag-list')"
         :collections="collections"
@@ -52,7 +66,11 @@ secondaryMenu: []
     height: 100vh;
 
     display: grid;
-    grid-template: ". site-nav main secondary-menu ." 1fr / auto 12rem 64ch 12rem auto;
+    grid-template: ". primary-nav main secondary-nav ." 1fr / auto 24ch 64ch 24ch auto;
+  }
+
+  body > * {
+    padding-top: var(--space-3xl);
   }
 
   main {
@@ -61,37 +79,48 @@ secondaryMenu: []
     padding: var(--space-xl);
   }
 
-  body > site-nav {
-    grid-area: site-nav;
-    width:100%;
+  #primary-nav-area {
+    grid-area: primary-nav;
+    container-type: size;
+    display: grid;
+    height: 100%;
+    pointer-events: none;
   }
 
-  body > aside {
-    grid-area: secondary-menu;
+  #primary-nav-container {
+    justify-self: end;
+    padding: var(--space-m);
+    border-right: medium black solid;
+    height: min-content;
+    pointer-events: auto;
   }
 
-  body > * {
-    padding-top: var(--space-3xl);
+  #secondary-nav-container {
+    grid-area: secondary-nav;
   }
 
-  @media (max-width: 128ch) {
+  @media (max-width: 108ch) {
     body {
-      grid-template:
-        "main" 1fr / 1fr;
+      grid-template: "main" 1fr / 1fr;
     }
 
-    body > * {
-      padding-top: 0;
+    main {
+      padding: var(--space-m);
     }
 
-    body > site-nav {
+    #primary-nav-area {
       grid-area: main;
-      place-self: end;
       z-index: 10;
     }
 
-    body > aside {
+    #primary-nav-container {
+      align-self: end;
+      border-right: none;
+    }
+
+    #secondary-nav-container {
       display: none;
     }
   }
-</style>
+
+ </style>

@@ -1,19 +1,18 @@
 import { DateTime } from "luxon";
 import eleventyWebcPlugin from "@11ty/eleventy-plugin-webc";
+import { IdAttributePlugin } from "@11ty/eleventy";
 import { JSDOM } from "jsdom";
 
 export default async function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/static/**/*.css");
 
 	eleventyConfig.addJavaScriptFunction("getToc", getToc);
-	eleventyConfig.addJavaScriptFunction("addIds", addIds);
+	// eleventyConfig.addJavaScriptFunction("addIds", addIds);
 	eleventyConfig.addJavaScriptFunction("extractExcerpt", extractExcerpt);
 
-	eleventyConfig.addJavaScriptFunction(
-		"dateToLocaleString",
-		dateToLocaleString,
-	);
+	eleventyConfig.addJavaScriptFunction("dateToLocaleString", dateToLocaleString);
 
+	eleventyConfig.addPlugin(IdAttributePlugin);
 	eleventyConfig.addPlugin(eleventyWebcPlugin, {
 		components: "src/_components/**/*.webc",
 	});

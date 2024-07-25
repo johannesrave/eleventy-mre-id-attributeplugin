@@ -8,8 +8,15 @@ pagination:
   reverse: true
 ---
 
-<h1>jrave.codes</h1>
-a blog - mostly about technology.
+<header>
+  <h1>jrave.codes</h1>
+  <p>a blog - mostly about technology.</p>
+</header>
 
-<h2>recent posts</h2>
 <post-excerpt-list :posts="pagination.items"></post-excerpt-list>
+
+<style>
+  h1 + p {
+    margin-bottom: var(--space-m);
+  }
+</style>

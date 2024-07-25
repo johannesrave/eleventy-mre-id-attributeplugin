@@ -4,8 +4,6 @@ tags: [ personal ]
 date: 2023-08-27T23:45:00+2
 ---
 
-# a beginning
-
 welcome to another whitish page -
 
 white signifying absence of eclectic content but presence of electric current,
