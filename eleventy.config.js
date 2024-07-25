@@ -1,7 +1,8 @@
-import { DateTime } from "luxon";
-import eleventyWebcPlugin from "@11ty/eleventy-plugin-webc";
 import { IdAttributePlugin } from "@11ty/eleventy";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import eleventyWebcPlugin from "@11ty/eleventy-plugin-webc";
 import { JSDOM } from "jsdom";
+import { DateTime } from "luxon";
 
 export default async function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/static/**/*.css");
@@ -11,6 +12,25 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addJavaScriptFunction("extractExcerpt", extractExcerpt);
 
 	eleventyConfig.addJavaScriptFunction("dateToLocaleString", dateToLocaleString);
+
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom", // or "rss", "json"
+		outputPath: "/feed.xml",
+		collection: {
+			name: "post", // iterate over `collections.posts`
+			limit: 10,     // 0 means no limit
+		},
+		metadata: {
+			language: "en",
+			title: "jrave.codes",
+			subtitle: "the virtual home of johannes rave",
+			base: "https://example.com/",
+			author: {
+				name: "Johannes Rave",
+				email: "", // Optional
+			}
+		}
+	});
 
 	eleventyConfig.addPlugin(IdAttributePlugin);
 	eleventyConfig.addPlugin(eleventyWebcPlugin, {
@@ -23,7 +43,7 @@ export default async function (eleventyConfig) {
 			layouts: "_layouts",
 			includes: "_components",
 		},
-		templateFormats: ["md", "webc"],
+		templateFormats: ["md", "webc", "njk"],
 	};
 }
 

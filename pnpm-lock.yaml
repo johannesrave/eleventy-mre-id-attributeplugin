@@ -11,6 +11,9 @@ importers:
       '@11ty/eleventy':
         specifier: github:11ty/eleventy
         version: https://codeload.github.com/11ty/eleventy/tar.gz/d3d03616146126bed029e9db2febad35790e98e9
+      '@11ty/eleventy-plugin-rss':
+        specifier: ^2.0.2
+        version: 2.0.2
       '@11ty/eleventy-plugin-webc':
         specifier: ^0.11.2
         version: 0.11.2
@@ -41,6 +44,9 @@ packages:
   '@11ty/eleventy-plugin-bundle@2.0.2':
     resolution: {integrity: sha512-zGyPp1g6bi+VC2I5ylwj4w29nivDmx4Uki5gWY6v3MT/1muK0JTtnc1KOMC7yUurv6YwtwdiLYyFK2eFyKv2wg==}
     engines: {node: '>=18'}
+
+  '@11ty/eleventy-plugin-rss@2.0.2':
+    resolution: {integrity: sha512-BiPsNbCvaqAORsg2NA4YqcSvMy/PZiefDU3PtGgwYJQ7A5rkRq/gdod2nu1AzwBG/0c5Qe7D49BxV0SByq9vCw==}
 
   '@11ty/eleventy-plugin-webc@0.11.2':
     resolution: {integrity: sha512-oa/XlAqI5KtVO7M14qaN92D2yJfBEMMSb66YWY6YZVbRqFSVbjO4WmRJ2Ti2ZZb1FNvxj4ypGNV8VJleGE69xw==}
@@ -1007,6 +1013,15 @@ snapshots:
   '@11ty/eleventy-plugin-bundle@2.0.2':
     dependencies:
       debug: 4.3.5
+    transitivePeerDependencies:
+      - supports-color
+
+  '@11ty/eleventy-plugin-rss@2.0.2':
+    dependencies:
+      '@11ty/eleventy-utils': 1.0.3
+      '@11ty/posthtml-urls': 1.0.0
+      debug: 4.3.5
+      posthtml: 0.16.6
     transitivePeerDependencies:
       - supports-color
 
