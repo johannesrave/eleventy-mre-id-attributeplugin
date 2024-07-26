@@ -1,6 +1,0 @@
----
-layout: _base.webc
-secondaryMenu: ['tag-list']
----
-
-<main @raw="content" webc:nokeep></main>

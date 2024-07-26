@@ -1,37 +1,9 @@
+---js
+{
+  "layout": "_base.webc",
+  "permalink": () => `posts/${page.date.toISOString().split('T')[0]}/${slugify(title)}`,
+  "tags": ["post"]
+}
 ---
-layout: "_base.webc"
-permalink: "posts/{{ page.date | date: '%Y%m%d' }}/{{ title | slugify }}"
----
-
-<script webc:type="js">
-  console.log(JSON.stringify(content));
-  ("");
-</script>
-
-<header class="post-header">
-  <h1 @raw="title"></h1>
-  <!-- <span>tagged as:</span> -->
-  <time :datetime="date.toISOString()" @text="dateToLocaleString(date)"></time>
-  -
-  <ul>
-    <li webc:for="tag of tags">
-      <a :href="`/tags/${tag}/`" @text="'#' + tag"></a>
-    </li>
-  </ul>
-</header>
 
 <article @html="content"></article>
-
-<footer></footer>
-
-<style>
-  .post-header {
-    margin-bottom: var(--space-s);
-  }
-
-
-  .post-header ul {
-    display: inline-flex;
-    gap: var(--space-xs);
-  }
-</style>
