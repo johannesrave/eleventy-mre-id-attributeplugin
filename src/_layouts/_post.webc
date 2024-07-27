@@ -1,6 +1,9 @@
 ---js
 {
   "layout": "_base.webc",
+  "permalink": function({page, title}){
+    return `posts/${page.date.toISOString().split('T')[0]}/${this.slugify(title)}`
+  },
   "tags": ["post"]
 }
 ---

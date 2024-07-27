@@ -1,11 +1,5 @@
 ---
 layout: _base.webc
-secondaryMenu: ["tag-list"]
-pagination:
-  data: collections.post
-  size: 8
-  alias: posts
-  reverse: true
 ---
 
 <header>
@@ -13,10 +7,3 @@ pagination:
   <p>a blog - mostly about technology.</p>
 </header>
 
-<post-excerpt-list :posts="pagination.items"></post-excerpt-list>
-
-<style>
-  h1 + p {
-    margin-bottom: var(--space-m);
-  }
-</style>
