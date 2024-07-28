@@ -5,5 +5,19 @@ layout: _base.webc
 <header>
   <h1>jrave.codes</h1>
   <p>a blog - mostly about technology.</p>
+  <nav><a href="/about/">about</a></nav>
 </header>
 
+<h2>posts</h2>
+<!--- https://11tywebcfun.netlify.app/recipes/looping-render-function/ --->
+<ul>
+	<script webc:type="js" webc:is="template">
+    collections.post
+			.map(
+				(page) => `<li>
+					<a href="${page.url}">${page.data.title}</a>
+				</li>`
+			)
+			.join("");
+	</script>
+</ul>
